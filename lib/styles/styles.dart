@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // Couleurs principales
-const Color primaryColor = Color(0xFF5F00BA);  // Violet foncé
-const Color secondaryColor = Color(0xFF8A2BE2);  // Violet plus clair
+const Color primaryColor = Color.fromARGB(255, 71, 0, 138);  // Violet foncé
+const Color secondaryColor = Color.fromARGB(255, 117, 36, 192);  // Violet plus clair
 const Color accentColor = Color(0xFFFF6F61);  // Rouge orangé
 
 // Couleurs de fond
@@ -11,7 +11,7 @@ const Color backgroundColorDark = Color(0xFFF4F4F9);  // Gris très clair
 
 // Couleurs de texte
 const Color titleTextColor = Color(0xFF363636);  // Noir pour les titres
-const Color bodyTextColor = Color(0xFFE5E5E5);  // Gris clair pour le texte principal
+const Color bodyTextColor = Color.fromARGB(255, 163, 160, 160);  // Gris clair pour le texte principal
 const Color secondaryTextColor = Color(0xFF7D7D7D);  // Gris moyen pour le texte secondaire
 
 // Couleurs d'état

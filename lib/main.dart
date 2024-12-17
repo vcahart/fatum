@@ -1,29 +1,50 @@
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:fatum/routes.dart';
-import 'package:fatum/screens/onboarding_screen.dart';
-import 'package:fatum/screens/welcome.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
 import 'package:shared_preferences/shared_preferences.dart';
 
-int? isviewed;
+import 'features/authentication/controllers/signup_controller.dart';
+import 'features/authentication/screens/onboarding/onboarding_screen.dart';
+import 'features/authentication/screens/welcome/welcome_screen.dart';
+import 'features/core/controllers/bmi_controller.dart';
+import 'features/core/controllers/profile_controller.dart';
+import 'firebase_options.dart';
+import 'repository/authentication_repository/authentication_repository.dart';
+import 'repository/user_repository/user_repository.dart';
+import 'utils/theme/theme.dart';
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  isviewed = prefs.getInt('onBoard');
-  runApp(const MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Onboarding',
-      theme: ThemeData(scaffoldBackgroundColor: HexColor("#FBFCFF")),
-      home: isviewed != 0 ? const OnboardingScreen() : const WelcomeScreen(),
-      routes: getApplicactionRoutes(),
+    return GetMaterialApp(
+      theme: TAppTheme.lightTheme,
+      themeMode: ThemeMode.light,
+      initialBinding: BindingsBuilder(() {
+        Get.put(AuthenticationRepository());
+        Get.put(UserRepository());
+        Get.put(SignUpController());
+        Get.put(ProfileController());
+        Get.put(BmiController());
+      }),
+      home: OnboardingScreen(),
     );
   }
 }
