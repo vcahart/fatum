@@ -63,7 +63,7 @@ class MenuFilterService {
         meets = true;
         break;
     }
-    print("Meets dietary restrictions (${dietaryRestriction}): $meets");
+    print("Meets dietary restrictions ($dietaryRestriction): $meets");
     return meets;
   }
 

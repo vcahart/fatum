@@ -8,7 +8,7 @@ import '../../../../constants/text_strings.dart';
 import '../../controllers/mail_verification_controller.dart';
 
 class MailVerification extends StatelessWidget {
-  const MailVerification({Key? key}) : super(key: key);
+  const MailVerification({super.key});
 
   @override
   Widget build(BuildContext context) {

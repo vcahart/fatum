@@ -3,13 +3,13 @@ import 'button_loading_widget.dart';
 
 class TPrimaryButton extends StatelessWidget {
   const TPrimaryButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.isLoading = false,
     this.isFullWidth = true,
     this.width = 100.0,
-  }) : super(key: key);
+  });
 
   final String text;
   final VoidCallback onPressed;

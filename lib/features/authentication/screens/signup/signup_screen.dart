@@ -10,7 +10,7 @@ import '../../../../common_widgets/form/form_header_widget.dart';
 import '../../../../constants/sizes.dart';
 
 class SignupScreen extends StatelessWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

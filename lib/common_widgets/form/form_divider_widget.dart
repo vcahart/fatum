@@ -4,8 +4,8 @@ import '../../constants/text_strings.dart';
 
 class TFormDividerWidget extends StatelessWidget {
   const TFormDividerWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -10,11 +10,11 @@ import '../buttons/social_button.dart';
 
 class SocialFooter extends StatelessWidget {
   const SocialFooter({
-    Key? key,
+    super.key,
     this.text1 = tDontHaveAnAccount,
     this.text2 = tSignup,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final String text1, text2;
   final VoidCallback onPressed;

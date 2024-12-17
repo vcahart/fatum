@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import '../../screens/bmi/bmi.dart';
 
 class BMIModel {
   double height;

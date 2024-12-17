@@ -69,7 +69,7 @@ class FirestoreService {
       print('Dining Hall: ${diningHallDoc.id}');
       var data = diningHallDoc.data() as Map<String, dynamic>?;
 
-      ['Breakfast', 'Lunch', 'Dinner', 'Late_Night'].forEach((mealType) {
+      for (var mealType in ['Breakfast', 'Lunch', 'Dinner', 'Late_Night']) {
         if (data?.containsKey(mealType) == true) {
           print('  $mealType Categories:');
           var mealData = data![mealType] as Map<String, dynamic>?;
@@ -77,7 +77,7 @@ class FirestoreService {
             print('    - $key');
           });
         }
-      });
+      }
 
       print('-------------------------------------');
     }

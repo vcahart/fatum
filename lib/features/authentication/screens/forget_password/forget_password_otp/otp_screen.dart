@@ -6,7 +6,7 @@ import '/constants/text_strings.dart';
 import '../../../controllers/otp_controller.dart';
 
 class OTPScreen extends StatelessWidget {
-  const OTPScreen({Key? key}) : super(key: key);
+  const OTPScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -11,14 +11,14 @@ class EditableImage extends StatefulWidget {
   final Function(File?) onChange;
 
   const EditableImage({
-    Key? key,
+    super.key,
     this.image,
     required this.size,
     required this.imagePickerTheme,
     required this.imageBorder,
     required this.editIconBorder,
     required this.onChange,
-  }) : super(key: key);
+  });
 
   @override
   _EditableImageState createState() => _EditableImageState();

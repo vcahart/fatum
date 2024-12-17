@@ -13,7 +13,7 @@ import '/features/core/screens/dashboard/widgets/search.dart';
 import '/features/core/screens/dashboard/widgets/top_courses.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
+  const Dashboard({super.key});
 
   String getGreeting() {
     final hour = DateTime.now().hour;

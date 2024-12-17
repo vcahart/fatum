@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import '../../screens/profile/dietary_preferences/dietary_preferences_form.dart';
 
 class DietaryPreferences {
   String dietaryRestriction;

@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
-import '../../../constants/colors.dart';
 
 import '../models/onboard_model.dart';
 import '../screens/welcome/welcome_screen.dart';

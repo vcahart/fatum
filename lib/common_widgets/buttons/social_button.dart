@@ -3,14 +3,14 @@ import 'button_loading_widget.dart';
 
 class TSocialButton extends StatelessWidget {
   const TSocialButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.image,
     this.isLoading = false,
     required this.foreground,
     required this.background,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final String text;
   final String image;

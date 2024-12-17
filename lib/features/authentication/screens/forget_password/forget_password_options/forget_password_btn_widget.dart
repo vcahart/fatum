@@ -7,8 +7,8 @@ class ForgetPasswordBtnWidget extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final IconData btnIcon;
   final String title, subTitle;

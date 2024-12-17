@@ -11,6 +11,8 @@ import 'package:get/get.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class BMICalculatorScreen extends StatefulWidget {
+  const BMICalculatorScreen({super.key});
+
   @override
   _BMICalculatorScreenState createState() => _BMICalculatorScreenState();
 }
@@ -22,8 +24,8 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
   double _bmi = 0;
   double _heightInCm = 0;
   double _weightInKg = 0;
-  String _heightUnit = 'cm'; // Default unit
-  String _weightUnit = 'kg'; // Default unit
+  final String _heightUnit = 'cm'; // Default unit
+  final String _weightUnit = 'kg'; // Default unit
   String _selectedUnit = 'cm';
   String _selectedWUnit = 'kg';
   File? _profileImage;
@@ -43,7 +45,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
   String _selectedActivityLevel = 'Sedentary (little or no exercise)';
 
   int _selectedGenderIndex = 0; // 0 for male, 1 for female
-  List<bool> _isSelectedGender = [
+  final List<bool> _isSelectedGender = [
     true,
     false,
     false
@@ -59,9 +61,9 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
   }
 
   Future<void> _pickImage() async {
-    final ImagePicker _picker = ImagePicker();
+    final ImagePicker picker = ImagePicker();
     // Let user select photo from gallery
-    final pickedFile = await _picker.pickImage(
+    final pickedFile = await picker.pickImage(
       source: ImageSource.gallery, // or ImageSource.camera for camera
       maxWidth: 400,
       maxHeight: 400,
@@ -304,7 +306,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                     color: Colors
                         .purple, // Optional: Use this to change floating label color when focused
                   ),
-                  suffixIcon: Container(
+                  suffixIcon: SizedBox(
                     width:
                     150, // Give it an appropriate size to fit the buttons
                     child: Row(
@@ -320,7 +322,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                           onPressed: () => setState(() => _selectedUnit = 'cm'),
                           child: Text('cm'),
                         ),
-                        Container(
+                        SizedBox(
                           height:
                           20, // Adjust the height to fit within the input field
                           child: VerticalDivider(
@@ -393,7 +395,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                     color: Colors
                         .purple, // Optional: Use this to change floating label color when focused
                   ),
-                  suffixIcon: Container(
+                  suffixIcon: SizedBox(
                     width:
                     150, // Give it an appropriate size to fit the buttons
                     child: Row(
@@ -412,7 +414,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                           },
                           child: Text('kg'),
                         ),
-                        Container(
+                        SizedBox(
                           height:
                           20, // Adjust the height to fit within the input field
                           child: VerticalDivider(
@@ -523,6 +525,15 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
               SizedBox(height: 30),
               Center(
                 child: ToggleButtons(
+                  onPressed: (int index) {
+                    _handleGenderSelection(index);
+                  },
+                  isSelected: _isSelectedGender,
+                  color: Colors.grey,
+                  selectedColor: Colors.purple,
+                  fillColor: Colors.purple.withOpacity(0.1),
+                  renderBorder: false,
+                  borderRadius: BorderRadius.circular(15.0),
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.all(16.0),
@@ -540,15 +551,6 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                       child: Text('Others'),
                     ),
                   ],
-                  onPressed: (int index) {
-                    _handleGenderSelection(index);
-                  },
-                  isSelected: _isSelectedGender,
-                  color: Colors.grey,
-                  selectedColor: Colors.purple,
-                  fillColor: Colors.purple.withOpacity(0.1),
-                  renderBorder: false,
-                  borderRadius: BorderRadius.circular(15.0),
                 ),
               ),
               SizedBox(height: 40),

@@ -9,8 +9,8 @@ class ClickableRichTextWidget extends StatelessWidget {
     required this.text1,
     required this.text2,
     required this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String text1, text2;
   final VoidCallback onPressed;

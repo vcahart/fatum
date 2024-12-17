@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ErrorScreen extends StatelessWidget {
   final String errorMessage;
 
-  const ErrorScreen({Key? key, this.errorMessage = "Something went wrong"}) : super(key: key);
+  const ErrorScreen({super.key, this.errorMessage = "Something went wrong"});
 
   @override
   Widget build(BuildContext context) {

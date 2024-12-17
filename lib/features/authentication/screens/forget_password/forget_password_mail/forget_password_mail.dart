@@ -8,7 +8,7 @@ import '/features/authentication/screens/login/login_screen.dart';
 import '../../../../../common_widgets/form/form_header_widget.dart';
 
 class ForgetPasswordMailScreen extends StatefulWidget {
-  const ForgetPasswordMailScreen({Key? key}) : super(key: key);
+  const ForgetPasswordMailScreen({super.key});
 
   @override
   _ForgetPasswordMailScreenState createState() => _ForgetPasswordMailScreenState();
