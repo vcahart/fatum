@@ -9,9 +9,10 @@ import '../../models/onboard_model.dart';
 import 'package:fatum/styles/styles.dart';
 
 class OnboardingScreen extends StatelessWidget {
-  final OnBoardingController _onBoardingController = Get.put(OnBoardingController());
+  final OnBoardingController _onBoardingController =
+      Get.put(OnBoardingController());
 
-  OnboardingScreen({super.key}); // Initialiser avec GetX
+   OnboardingScreen({super.key}); // Initialiser avec GetX
 
   Future<void> _storeOnboardInfo() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

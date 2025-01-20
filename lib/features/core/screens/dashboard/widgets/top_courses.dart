@@ -6,10 +6,10 @@ import '../../../models/dashboard/courses_model.dart';
 
 class DashboardTopCourses extends StatelessWidget {
   const DashboardTopCourses({
-    Key? key,
+    super.key,
     required this.txtTheme,
     required this.isDark,
-  }) : super(key: key);
+  });
 
   final TextTheme txtTheme;
   final bool isDark;

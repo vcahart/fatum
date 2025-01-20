@@ -23,7 +23,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import '/features/core/controllers/profile_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
 
   Future<String?> getUserProfileImageUrl() async {
     User? user = FirebaseAuth.instance.currentUser;
@@ -218,8 +218,7 @@ class ProfileScreen extends StatelessWidget {
             onPressed: () {
               Get.back(); // Close the dialog
               _promptForReauthentication(context); // Prompt for re-authentication
-            },
-            child: const Text("DELETE", style: TextStyle(color: Colors.white, fontSize: 16)), // Increased font size
+            }, // Increased font size
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red, // Button color for delete action
               shape: RoundedRectangleBorder(
@@ -228,13 +227,13 @@ class ProfileScreen extends StatelessWidget {
               side: BorderSide.none, // Remove border
               minimumSize: const Size.fromHeight(45), // Height is specified, width will adapt to the padding
             ),
+            child: const Text("DELETE", style: TextStyle(color: Colors.white, fontSize: 16)),
           ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20), // Side margins and reduced bottom margin for the buttons
           child: ElevatedButton(
-            onPressed: () => Get.back(),
-            child: const Text("CANCEL", style: TextStyle(color: Colors.white, fontSize: 16)), // Increased font size
+            onPressed: () => Get.back(), // Increased font size
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.grey, // Button color for cancel action
               shape: RoundedRectangleBorder(
@@ -243,6 +242,7 @@ class ProfileScreen extends StatelessWidget {
               side: BorderSide.none, // Remove border
               minimumSize: const Size.fromHeight(45), // Height is specified, width will adapt to the padding
             ),
+            child: const Text("CANCEL", style: TextStyle(color: Colors.white, fontSize: 16)),
           ),
         ),
       ],
@@ -334,7 +334,6 @@ class ProfileScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: ElevatedButton(
             onPressed: () => AuthenticationRepository.instance.logout(),
-            child: const Text("YES", style: TextStyle(color: Colors.white, fontSize: 16)),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.grey,
               elevation: 0,
@@ -344,13 +343,13 @@ class ProfileScreen extends StatelessWidget {
               side: BorderSide.none, // Ensure no borders
               minimumSize: const Size.fromHeight(45),
             ),
+            child: const Text("YES", style: TextStyle(color: Colors.white, fontSize: 16)),
           ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: ElevatedButton(
             onPressed: () => Get.back(),
-            child: const Text("NO", style: TextStyle(color: Colors.white, fontSize: 16)),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black,
               elevation: 0,
@@ -360,6 +359,7 @@ class ProfileScreen extends StatelessWidget {
               side: BorderSide.none, // Ensure no borders
               minimumSize: const Size.fromHeight(45),
             ),
+            child: const Text("NO", style: TextStyle(color: Colors.white, fontSize: 16)),
           ),
         ),
       ],

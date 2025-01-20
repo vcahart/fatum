@@ -4,10 +4,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:liquid_swipe/liquid_swipe.dart';
-import '/constants/sizes.dart';
 import 'package:get/get.dart';
-import '/features/core/screens/bmi/bmi.dart';
+import '../../bmi/HomeScreen.dart';
 import '/features/core/screens/dashboard/dashboard.dart';
 import '../../../models/profile/dietary_preferences_model.dart';
 
@@ -15,7 +13,7 @@ import '../../../models/profile/dietary_preferences_model.dart';
 //---------------------------------DEFINITION----------------------------------
 
 class DietaryPreferencesForm extends StatefulWidget {
-  const DietaryPreferencesForm({Key? key}) : super(key: key);
+  const DietaryPreferencesForm({super.key});
 
   @override
   _DietaryPreferencesFormState createState() => _DietaryPreferencesFormState();
@@ -83,13 +81,13 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
   String _dietaryLaws = 'None';
   bool _showOtherDislikeTextField = false;
   String _otherDislike = '';
-  bool _showOtherDietaryLawsTextField = false;
-  bool _showOtherAdditionalPreferencesTextField = false;
-  String _otherDietaryLaw = '';
-  double _organicPreference = 0;
-  String _foodDislikes = '';
+  final bool _showOtherDietaryLawsTextField = false;
+  final bool _showOtherAdditionalPreferencesTextField = false;
+  final String _otherDietaryLaw = '';
+  final double _organicPreference = 0;
+  final String _foodDislikes = '';
   bool _consent = false;
-  String? _selectedDietaryLaw = '';
+  final String _selectedDietaryLaw = '';
 
   get children => null;
 
@@ -208,7 +206,7 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
 
 
   Widget _buildAllergiesSection() {
-    bool _noneSelected = _allergies['None'] ?? false;
+    bool noneSelected = _allergies['None'] ?? false;
 
     return _buildSectionCard(
       title: 'Common Allergies / Intolerances',
@@ -223,24 +221,24 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
         CheckboxListTile(
           key: Key('allergyNone'), // Key for the "None" checkbox
           title: Text('None'),
-          value: _noneSelected,
+          value: noneSelected,
           onChanged: (bool? newValue) {
             setState(() {
-              _noneSelected = newValue!;
+              noneSelected = newValue!;
               _allergies.forEach((key, _) {
                 if (key != 'None') _allergies[key] = false;
               });
-              _allergies['None'] = _noneSelected;
+              _allergies['None'] = noneSelected;
             });
           },
         ),
         AnimatedOpacity(
-          opacity: _noneSelected ? 0.0 : 1.0,
+          opacity: noneSelected ? 0.0 : 1.0,
           duration: Duration(milliseconds: 500),
           child: AnimatedSize(
             duration: Duration(milliseconds: 500),
             child: Visibility(
-              visible: !_noneSelected,
+              visible: !noneSelected,
               child: Column(
                 children: _allergies.entries
                     .where((entry) => entry.key != 'None')
@@ -252,7 +250,7 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
                     setState(() {
                       _allergies[entry.key] = newValue!;
                       if (entry.key == 'Other') {
-                        _showOtherAllergyTextField = newValue!;
+                        _showOtherAllergyTextField = newValue;
                       }
                     });
                   },
@@ -263,7 +261,7 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
           ),
         ),
         Visibility(
-          visible: !_noneSelected && _showOtherAllergyTextField,
+          visible: !noneSelected && _showOtherAllergyTextField,
           child: AnimatedOpacity(
             opacity: _showOtherAllergyTextField ? 1.0 : 0.0,
             duration: Duration(milliseconds: 500),
@@ -340,7 +338,7 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
 
 
   Widget _buildAdditionalPreferencesSection() {
-    bool _noneSelectedForPreferences = _preferences['None'] ?? false;
+    bool noneSelectedForPreferences = _preferences['None'] ?? false;
 
     return _buildSectionCard(
       title: 'Additional Preferences',
@@ -355,23 +353,23 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
         CheckboxListTile(
           key: Key('preferenceNone'), // Key for the "None" checkbox
           title: Text('None'),
-          value: _noneSelectedForPreferences,
+          value: noneSelectedForPreferences,
           onChanged: (bool? newValue) {
             setState(() {
-              _noneSelectedForPreferences = newValue!;
-              if (_noneSelectedForPreferences) {
+              noneSelectedForPreferences = newValue!;
+              if (noneSelectedForPreferences) {
                 _preferences.forEach((key, value) {
                   _preferences[key] = false;
                 });
               }
-              _preferences['None'] = _noneSelectedForPreferences;
+              _preferences['None'] = noneSelectedForPreferences;
             });
           },
         ),
         AnimatedSize(
           duration: Duration(milliseconds: 500),
           child: Visibility(
-            visible: !_noneSelectedForPreferences,
+            visible: !noneSelectedForPreferences,
             child: Column(
               children: _preferences.entries.where((entry) => entry.key != 'None').map((entry) {
                 return CheckboxListTile(
@@ -400,7 +398,7 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
 
 
   Widget _buildFoodDislikesSection() {
-    bool _noneSelectedForDislikes = _dislikes['None'] ?? false;
+    bool noneSelectedForDislikes = _dislikes['None'] ?? false;
 
     return _buildSectionCard(
       title: 'Food Dislikes',
@@ -415,23 +413,23 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
         CheckboxListTile(
           key: Key('dislikeNone'), // Key for the "None" checkbox
           title: Text('None'),
-          value: _noneSelectedForDislikes,
+          value: noneSelectedForDislikes,
           onChanged: (bool? newValue) {
             setState(() {
-              _noneSelectedForDislikes = newValue!;
-              if (_noneSelectedForDislikes) {
+              noneSelectedForDislikes = newValue!;
+              if (noneSelectedForDislikes) {
                 _dislikes.forEach((key, value) {
                   _dislikes[key] = false;
                 });
               }
-              _dislikes['None'] = _noneSelectedForDislikes;
+              _dislikes['None'] = noneSelectedForDislikes;
             });
           },
         ),
         AnimatedSize(
           duration: Duration(milliseconds: 500),
           child: Visibility(
-            visible: !_noneSelectedForDislikes,
+            visible: !noneSelectedForDislikes,
             child: Column(
               children: _dislikes.entries.where((entry) => entry.key != 'None').map((entry) {
                 return CheckboxListTile(
@@ -442,7 +440,7 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
                     setState(() {
                       _dislikes[entry.key] = newValue!;
                       if (entry.key == 'Other') {
-                        _showOtherDislikeTextField = newValue!;
+                        _showOtherDislikeTextField = newValue;
                       }
                     });
                   },
@@ -452,7 +450,7 @@ class _DietaryPreferencesFormState extends State<DietaryPreferencesForm> {
           ),
         ),
         Visibility(
-          visible: !_noneSelectedForDislikes && _showOtherDislikeTextField,
+          visible: !noneSelectedForDislikes && _showOtherDislikeTextField,
           child: Column(
             children: [
               TextFormField(

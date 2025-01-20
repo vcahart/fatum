@@ -16,6 +16,8 @@ import '/utils/helper/helper_controller.dart';
 
 
 class UpdatePasswordScreen extends StatefulWidget {
+  const UpdatePasswordScreen({super.key});
+
   @override
   _UpdatePasswordScreenState createState() => _UpdatePasswordScreenState();
 }

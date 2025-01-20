@@ -5,11 +5,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../features/authentication/screens/mail_verification/mail_verification.dart';
 import '../../features/authentication/screens/onboarding/onboarding_screen.dart';
-import '../../features/core/screens/bmi/bmi.dart';
+import '../../features/core/screens/bmi/HomeScreen.dart';
 import '../../features/core/screens/dashboard/dashboard.dart';
 import '../../features/core/screens/profile/dietary_preferences/dietary_preferences_form.dart';
 import 'exceptions/t_exceptions.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -145,6 +144,19 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+
+Future<bool> isUserExistByEmail(String email) async {
+  try {
+    final signInMethods = await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
+
+    // Si des méthodes de connexion existent pour cet e-mail, l'utilisateur existe
+    return signInMethods.isNotEmpty;
+  } catch (e) {
+    throw Exception("Erreur lors de la vérification de l'utilisateur: $e");
+  }
+}
+
+
   /* ---------------------------- Federated identity & social sign-in ---------------------------------*/
 
   /// [GoogleAuthentication] - GOOGLE
@@ -210,9 +222,13 @@ class AuthenticationRepository extends GetxController {
   /// [PhoneAuthentication] - REGISTER
   Future<void> phoneAuthentication(String phoneNo) async {
     // Validate the phone number length
-    if (!RegExp(r'^\d{9}$').hasMatch(phoneNo)) {
+    if (!RegExp(r'^(?:\+33|0)\d{9}$').hasMatch(phoneNo)) {
       throw 'Please enter a valid 9 digit phone number';
     }
+     // Standardisation : remplacer le préfixe 0 par +33
+  if (phoneNo.startsWith('0')) {
+    phoneNo.replaceFirst('0', '+33');
+  }
 
     try {
       await _auth.verifyPhoneNumber(

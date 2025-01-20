@@ -10,10 +10,10 @@ class ImageWithIcon extends StatelessWidget {
   final VoidCallback onImageUpdate;
 
   const ImageWithIcon({
-    Key? key,
+    super.key,
     this.imageUrl,
     required this.onImageUpdate,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

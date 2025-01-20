@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 import '/features/core/screens/profile/profile_screen.dart';
 
 class UpdateBMIScreen extends StatefulWidget {
+  const UpdateBMIScreen({super.key});
+
   @override
   _UpdateBMIScreenState createState() => _UpdateBMIScreenState();
 }
@@ -19,8 +21,8 @@ class _UpdateBMIScreenState extends State<UpdateBMIScreen> {
   double _bmi = 0;
   double _heightInCm = 0;
   double _weightInKg = 0;
-  String _heightUnit = 'cm'; // Default unit
-  String _weightUnit = 'kg'; // Default unit
+  final String _heightUnit = 'cm'; // Default unit
+  final String _weightUnit = 'kg'; // Default unit
   String _selectedUnit = 'cm';
   String _selectedWUnit = 'kg';
   final TextEditingController _nameController = TextEditingController();
@@ -39,7 +41,7 @@ class _UpdateBMIScreenState extends State<UpdateBMIScreen> {
   String _selectedActivityLevel = 'Sedentary (little or no exercise)';
 
   int _selectedGenderIndex = 0; // 0 for male, 1 for female
-  List<bool> _isSelectedGender = [
+  final List<bool> _isSelectedGender = [
     true,
     false,
     false
@@ -253,7 +255,7 @@ class _UpdateBMIScreenState extends State<UpdateBMIScreen> {
                     color: Colors
                         .purple, // Optional: Use this to change floating label color when focused
                   ),
-                  suffixIcon: Container(
+                  suffixIcon: SizedBox(
                     width:
                     150, // Give it an appropriate size to fit the buttons
                     child: Row(
@@ -269,7 +271,7 @@ class _UpdateBMIScreenState extends State<UpdateBMIScreen> {
                           onPressed: () => setState(() => _selectedUnit = 'cm'),
                           child: Text('cm'),
                         ),
-                        Container(
+                        SizedBox(
                           height:
                           20, // Adjust the height to fit within the input field
                           child: VerticalDivider(
@@ -342,7 +344,7 @@ class _UpdateBMIScreenState extends State<UpdateBMIScreen> {
                     color: Colors
                         .purple, // Optional: Use this to change floating label color when focused
                   ),
-                  suffixIcon: Container(
+                  suffixIcon: SizedBox(
                     width:
                     150, // Give it an appropriate size to fit the buttons
                     child: Row(
@@ -361,7 +363,7 @@ class _UpdateBMIScreenState extends State<UpdateBMIScreen> {
                           },
                           child: Text('kg'),
                         ),
-                        Container(
+                        SizedBox(
                           height:
                           20, // Adjust the height to fit within the input field
                           child: VerticalDivider(
@@ -472,6 +474,15 @@ class _UpdateBMIScreenState extends State<UpdateBMIScreen> {
               SizedBox(height: 30),
               Center(
                 child: ToggleButtons(
+                  onPressed: (int index) {
+                    _handleGenderSelection(index);
+                  },
+                  isSelected: _isSelectedGender,
+                  color: Colors.grey,
+                  selectedColor: Colors.purple,
+                  fillColor: Colors.purple.withOpacity(0.1),
+                  renderBorder: false,
+                  borderRadius: BorderRadius.circular(15.0),
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.all(16.0),
@@ -489,15 +500,6 @@ class _UpdateBMIScreenState extends State<UpdateBMIScreen> {
                       child: Text('Others'),
                     ),
                   ],
-                  onPressed: (int index) {
-                    _handleGenderSelection(index);
-                  },
-                  isSelected: _isSelectedGender,
-                  color: Colors.grey,
-                  selectedColor: Colors.purple,
-                  fillColor: Colors.purple.withOpacity(0.1),
-                  renderBorder: false,
-                  borderRadius: BorderRadius.circular(15.0),
                 ),
               ),
               SizedBox(height: 40),

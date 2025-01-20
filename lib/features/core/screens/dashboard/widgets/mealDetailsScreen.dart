@@ -16,11 +16,11 @@ class MealDetailsScreen extends StatefulWidget {
   final Future<Map<String, List<FilteredMenuItem>>> allMenuItemsFuture;
 
   const MealDetailsScreen({
-    Key? key,
+    super.key,
     required this.hallName,
     required this.mealCategory,
     required this.allMenuItemsFuture,
-  }) : super(key: key);
+  });
 
   @override
   _MealDetailsScreenState createState() => _MealDetailsScreenState();
@@ -63,13 +63,13 @@ class _MealDetailsScreenState extends State<MealDetailsScreen> {
               );
 
               // List of items for this category
-              items.forEach((item) {
+              for (var item in items) {
                 // Use the _buildDishExpansionTile method to create the widget for each item
                 Widget dishWidget = _buildDishExpansionTile(item);
 
                 // Add the returned widget to your list of widgets
                 menuItemsWidgets.add(dishWidget);
-              });
+              }
 
               // Add spacing after each category
               menuItemsWidgets.add(SizedBox(height: 10));

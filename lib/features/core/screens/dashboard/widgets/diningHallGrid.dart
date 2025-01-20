@@ -5,9 +5,9 @@ class DiningHallGrid extends StatelessWidget {
   final List<Map<String, String>> diningHalls;
 
   const DiningHallGrid({
-    Key? key,
+    super.key,
     required this.diningHalls,
-  }) : super(key: key);
+  });
 
   void navigateToMealOptions(BuildContext context, Map<String, String> diningHall) {
     Navigator.push(
@@ -47,7 +47,7 @@ class DiningHallGrid extends StatelessWidget {
               children: <Widget>[
                 Align(
                   alignment: Alignment.topRight,
-                  child: Container(
+                  child: SizedBox(
                     width: 70,
                     height: 70,
                     child: Image.asset(

@@ -5,12 +5,12 @@ import 'fade_in_animation_model.dart';
 
 class TFadeInAnimation extends StatelessWidget {
   TFadeInAnimation({
-    Key? key,
+    super.key,
     required this.durationInMs,
     required this.child,
     this.animate,
     this.isTwoWayAnimation = true,
-  }) : super(key: key);
+  });
 
   final controller = Get.put(FadeInAnimationController());
   final int durationInMs;

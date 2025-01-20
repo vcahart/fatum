@@ -5,7 +5,7 @@ import '/features/core/controllers/profile_controller.dart';
 import '/features/authentication/models/user_model.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
-  UpdateProfileScreen({Key? key}) : super(key: key);
+  const UpdateProfileScreen({super.key});
 
   @override
   _UpdateProfileScreenState createState() => _UpdateProfileScreenState();

@@ -8,7 +8,7 @@ import '../../../../constants/colors.dart';
 import '../../../../constants/sizes.dart';
 
 class AllUsers extends StatelessWidget {
-  AllUsers({Key? key}) : super(key: key);
+  AllUsers({super.key});
 
   final controller = Get.put(ProfileController());
 

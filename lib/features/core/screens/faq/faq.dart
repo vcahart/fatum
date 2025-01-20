@@ -4,7 +4,7 @@ import '/constants/sizes.dart';
 import '/constants/text_strings.dart';  // Assuming this file contains strings for FAQs
 
 class FAQScreen extends StatelessWidget {
-  FAQScreen({Key? key}) : super(key: key);
+  FAQScreen({super.key});
 
   final List<Map<String, dynamic>> faqs = [
     {

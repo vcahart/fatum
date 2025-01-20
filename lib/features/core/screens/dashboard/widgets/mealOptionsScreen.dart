@@ -7,7 +7,7 @@ import '/backend/controllers/menuFilterService.dart'; // Assume this is where yo
 class MealOptionsScreen extends StatelessWidget {
   final String hallName;
 
-  MealOptionsScreen({Key? key, required this.hallName}) : super(key: key);
+  MealOptionsScreen({super.key, required this.hallName});
 
   final List<Map<String, String>> mealOptions = [
     {

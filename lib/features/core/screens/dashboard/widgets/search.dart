@@ -3,9 +3,9 @@ import '../../../../../constants/text_strings.dart';
 
 class DashboardSearchBox extends StatelessWidget {
   const DashboardSearchBox({
-    Key? key,
+    super.key,
     required this.txtTheme,
-  }) : super(key: key);
+  });
 
   final TextTheme txtTheme;
 

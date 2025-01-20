@@ -5,9 +5,9 @@ import '../../../models/dashboard/categories_model.dart';
 
 class DashboardCategories extends StatelessWidget {
   const DashboardCategories({
-    Key? key,
+    super.key,
     required this.txtTheme,
-  }) : super(key: key);
+  });
 
   final TextTheme txtTheme;
 

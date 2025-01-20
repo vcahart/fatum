@@ -6,10 +6,10 @@ import '/constants/sizes.dart';
 
 class DashboardBanners extends StatelessWidget {
   const DashboardBanners({
-    Key? key,
+    super.key,
     required this.txtTheme,
     required this.isDark,
-  }) : super(key: key);
+  });
 
   final TextTheme txtTheme;
   final bool isDark;
