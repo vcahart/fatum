@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '/constants/colors.dart';
 import '/constants/sizes.dart';
-import '/constants/text_strings.dart';  // Assuming this file contains strings for FAQs
+// Assuming this file contains strings for FAQs
 
 class FAQScreen extends StatelessWidget {
   FAQScreen({super.key});

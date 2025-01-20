@@ -1,8 +1,8 @@
+import 'package:fatum/features/authentication/screens/signup/signup_screen.dart';
 import 'package:get/get.dart';
 import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
 
 import '../models/onboard_model.dart';
-import '../screens/welcome/welcome_screen.dart';
 
 
 class OnBoardingController extends GetxController {
@@ -14,13 +14,13 @@ class OnBoardingController extends GetxController {
     if (currentPage.value < pages.length - 1) {
       controller.animateToPage(page: currentPage.value + 1);
     } else {
-      Get.offAll(() => WelcomeScreen()); // Naviguer vers la page d'accueil
+      Get.offAll(() => SignupScreen()); // Naviguer vers la page d'accueil
     }
   }
 
   // Fonction pour gérer le "skip"
   void skip() {
-    Get.offAll(() => WelcomeScreen());
+    Get.offAll(() => SignupScreen());
   }
 
   // Fonction callback lors du changement de page
@@ -30,7 +30,7 @@ class OnBoardingController extends GetxController {
 
  List<OnbordingContent> pages = [
   OnbordingContent(
-    title: '1. %Identifiez-vous% en scannant une pièce d\'identité (Passeport, CNI, Permis, etc.)',
+    title: '%Identifiez-vous% en scannant une pièce d\'identité',
     image: 'assets/onboarding/informations.svg',
     description:
         "En partenariat avec Stripe Identity™, seuls votre nom, prénom et date de naissance seront conservés en mémoire.",

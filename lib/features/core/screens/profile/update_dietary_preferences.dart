@@ -4,10 +4,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:liquid_swipe/liquid_swipe.dart';
-import '/constants/sizes.dart';
 import 'package:get/get.dart';
-import '/features/core/screens/bmi/bmi.dart';
 import '/features/core/screens/profile/profile_screen.dart';
 import '/features/core/screens/dashboard/dashboard.dart';
 import '../../models/profile/dietary_preferences_model.dart';
@@ -90,7 +87,7 @@ class _UpdateDietaryPreferencesFormState extends State<UpdateDietaryPreferencesF
   final double _organicPreference = 0;
   final String _foodDislikes = '';
   bool _consent = false;
-  final String? _selectedDietaryLaw = '';
+  final String _selectedDietaryLaw = '';
 
   get children => null;
 

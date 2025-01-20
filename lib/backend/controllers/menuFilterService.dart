@@ -1,15 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'menuItemClass.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:liquid_swipe/liquid_swipe.dart';
-import '/constants/sizes.dart';
-import 'package:get/get.dart';
-import '/features/core/screens/bmi/bmi.dart';
-import '/features/core/screens/dashboard/dashboard.dart';
 import '/features/core/models/profile/dietary_preferences_model.dart';
-import '/features/core/screens/profile/dietary_preferences/dietary_preferences_form.dart';
 
 
 class FilteredMenuItem {

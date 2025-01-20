@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'mealDetailsScreen.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/controllers/firestoreClass.dart';
-import '/backend/controllers/menuFilterService.dart'; // Assume this is where your MenuFilterService is defined
+// Assume this is where your MenuFilterService is defined
 
 class MealOptionsScreen extends StatelessWidget {
   final String hallName;

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "591505583024",
+    "project_id": "fatum-8a6f0",
+    "storage_bucket": "fatum-8a6f0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591505583024:android:7d073ec7588dc1799a0475",
+        "android_client_info": {
+          "package_name": "fr.fatum.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpI9XIztJzzKLkpRXeEX-YYLLpieBttBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

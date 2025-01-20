@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../authentication/screens/onboarding/onboarding_screen.dart';
-import '/features/core/screens/bmi/bmi.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '/common_widgets/buttons/primary_button.dart';
 import '/constants/sizes.dart';
@@ -11,16 +10,12 @@ import '/constants/text_strings.dart';
 import '/features/core/screens/profile/update_profile_screen.dart';
 import '/features/core/screens/profile/update_dietary_preferences.dart';
 import '/features/core/screens/profile/update_bmi.dart';
-import '/features/core/screens/profile/widgets/image_with_icon.dart';
 import '/features/core/screens/profile/widgets/profile_menu.dart';
-import '/features/core/screens/profile/all_users.dart';
-import '/features/core/screens/profile/dietary_preferences/dietary_preferences_form.dart';
 import '../../../../repository/authentication_repository/authentication_repository.dart';
 import '/features/core/screens/update_password/updatepassword.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/features/core/screens/faq/faq.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import '/features/core/controllers/profile_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

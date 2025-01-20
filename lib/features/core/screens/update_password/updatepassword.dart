@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/constants/colors.dart';
 import '/constants/sizes.dart';
-import '/constants/text_strings.dart';
 import '/common_widgets/buttons/primary_button.dart';
 import '/features/core/controllers/profile_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '/features/core/screens/profile/profile_screen.dart';
-import '/common_widgets/buttons/primary_button.dart';
-import '/constants/sizes.dart';
-import '/constants/text_strings.dart';
-import '/utils/helper/helper_controller.dart';
 
 
 

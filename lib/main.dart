@@ -2,16 +2,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'features/authentication/controllers/signup_controller.dart';
 import 'features/authentication/screens/onboarding/onboarding_screen.dart';
-import 'features/authentication/screens/welcome/welcome_screen.dart';
 import 'features/core/controllers/bmi_controller.dart';
 import 'features/core/controllers/profile_controller.dart';
 import 'firebase_options.dart';

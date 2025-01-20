@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import '/features/core/screens/profile/dietary_preferences/dietary_preferences_form.dart';
-import '/constants/image_strings.dart';
 import '/constants/sizes.dart';
 import '/constants/text_strings.dart';
 import '/features/core/screens/dashboard/widgets/appbar.dart';
 import '/features/core/screens/dashboard/widgets/diningHallGrid.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '/features/core/screens/dashboard/widgets/banners.dart';
-import '/features/core/screens/dashboard/widgets/categories.dart';
-import '/features/core/screens/dashboard/widgets/search.dart';
-import '/features/core/screens/dashboard/widgets/top_courses.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});

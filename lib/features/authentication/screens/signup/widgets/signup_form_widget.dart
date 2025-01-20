@@ -23,7 +23,7 @@ class SignUpFormWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
-              controller: controller.fullName,
+              controller: controller.confirmPasswordController,
               validator: (value) {
                 if(value!.isEmpty) return 'Name cannot be empty';
                 return null;
@@ -32,13 +32,13 @@ class SignUpFormWidget extends StatelessWidget {
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
-              controller: controller.email,
+              controller: controller.confirmPasswordController,
               validator: Helper.validateEmail,
               decoration: const InputDecoration(label: Text(tEmail), prefixIcon: Icon(LineAwesomeIcons.envelope)),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
-              controller: controller.phoneNo,
+              controller: controller.confirmPasswordController,
               validator: (value) {
                 if(value!.isEmpty) return 'Phone number cannot be empty';
                 return null;
@@ -48,9 +48,9 @@ class SignUpFormWidget extends StatelessWidget {
             const SizedBox(height: tFormHeight - 20),
             Obx(
                   () => TextFormField(
-                controller: controller.password,
+                controller: controller.confirmPasswordController,
                 validator: Helper.validatePassword,
-                obscureText: controller.showPassword.value ? false : true,
+                obscureText: true,
                 decoration: InputDecoration(
                   label: const Text(tPassword),
                   prefixIcon: const Icon(Icons.fingerprint),

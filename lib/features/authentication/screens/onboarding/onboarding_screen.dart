@@ -58,29 +58,13 @@ class OnboardingScreen extends StatelessWidget {
                       const SizedBox(height: 60),
                       model.getFormattedTitle(
                         context,
-                        const TextStyle(
-                          fontFamily: 'Playfair Display',
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold,
-                          color: titleTextColor,
-                        ),
-                        const TextStyle(
-                          fontFamily: 'Playfair Display',
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold,
-                          color: secondaryColor,
-                        ),
-                      ),
+                        Theme.of(context).textTheme.displaySmall!,
+                        Theme.of(context).textTheme.displaySmall!.copyWith(color: secondaryColor)),
                       const SizedBox(height: 20),
                       Text(
-                        model.title!,
+                        model.description!,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontFamily: 'Source Sans Pro',
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300,
-                          color: Color.fromARGB(255, 138, 138, 138),
-                        ),
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '/backend/controllers/menuFilterService.dart';
-import '/backend/controllers/menuItemClass.dart'; // Assuming this has FilteredMenuItem definition.
+// Assuming this has FilteredMenuItem definition.
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
