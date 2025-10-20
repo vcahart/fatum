@@ -39,7 +39,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   flutter_native_splash: ^2.4.2
   firebase_auth: ^5.3.4
-  firebase_core: ^3.8.1
+  firebase_core: ^3.10.0
   get: ^4.6.6
   line_awesome_flutter: ^3.0.1
   google_sign_in: ^6.2.2

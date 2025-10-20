@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 class HomeScreen extends StatelessWidget {
   final ProfileController profileController = ProfileController.instance;
 
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +19,13 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Obx(() {
           final user = profileController.currentUser;
-          if (user.name.isNotEmpty) {
+          if (user.fullName.isNotEmpty) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Bienvenue, ${user.name}!',
+                    'Bienvenue, ${user.fullName}!',
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,

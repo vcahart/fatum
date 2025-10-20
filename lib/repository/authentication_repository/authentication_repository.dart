@@ -5,9 +5,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../features/authentication/screens/mail_verification/mail_verification.dart';
 import '../../features/authentication/screens/onboarding/onboarding_screen.dart';
-import '../../features/core/screens/bmi/HomeScreen.dart';
+import '../../features/core/screens/home/HomeScreen.dart';
 import '../../features/core/screens/dashboard/dashboard.dart';
-import '../../features/core/screens/profile/dietary_preferences/dietary_preferences_form.dart';
 import 'exceptions/t_exceptions.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -57,7 +56,7 @@ class AuthenticationRepository extends GetxController {
       bool hasBmiData = await checkForFormData(user.email!, 'bmiForm');
       if (!hasBmiData) {
         // User needs to fill out BMI form
-        Get.offAll(() => BMICalculatorScreen());
+        Get.offAll(() => HomeScreen());
         return;
       }
 
@@ -65,7 +64,7 @@ class AuthenticationRepository extends GetxController {
       bool hasDietaryData = await checkForFormData(user.email!, 'dietaryPreferencesForm');
       if (!hasDietaryData) {
         // User needs to fill out dietary preferences form
-        Get.offAll(() => DietaryPreferencesForm());
+        Get.offAll(() => HomeScreen());
         return;
       }
 
